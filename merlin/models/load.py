@@ -11,8 +11,7 @@ class Merlin(nn.Module):
     def __init__(self, ImageEmbedding: bool = False):
         super(Merlin, self).__init__()
         self.ImageEmbedding = ImageEmbedding
-        self.current_path = os.path.dirname(os.path.abspath(__file__))
-        self.local_dir = os.path.join(self.current_path, "checkpoints")
+        self.local_dir = os.path.join("/tmp/merlin", "checkpoints")
         self.checkpoint_name = (
             "i3_resnet_clinical_longformer_best_clip_04-02-2024_23-21-36_epoch_99.pt"
         )
@@ -31,7 +30,7 @@ class Merlin(nn.Module):
         )
         return model
 
-    """ 
+    """
     Download the Merlin weights from the Hugging Face Hub
     """
 
